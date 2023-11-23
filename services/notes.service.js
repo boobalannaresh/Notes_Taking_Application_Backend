@@ -5,8 +5,8 @@ export async function postMethod(createData) {
     return await client.db("Career-fair").collection("notes").insertOne(createData)
 }
 
-export async function getMethod(queryData) {
-    return await client.db("Career-fair").collection("notes").find(queryData).toArray();
+export async function getMethod(request) {
+    return await client.db("Career-fair").collection("notes").find({ email: request.params.id }).toArray();
 }
 
 export async function getMethodByID(id) {

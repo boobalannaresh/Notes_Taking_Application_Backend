@@ -41,7 +41,7 @@ router.post("/login", async function (request, response) {
 
             const token = JWT.sign({ id: loginCheck.id }, process.env.SECRET_KEY) //// <--- Secret Key
 
-            response.status(200).send({ message: "Successfully Login !!😃🙂", secretToken: token, permission: loginCheck.roleId  })
+            response.status(200).send({ message: "Successfully Login !!😃🙂", secretToken: token, userEmail: loginCheck.email  })
         } else {
             response.status(400).json({ status: 400, message: "Password is wrong !" })
         }
